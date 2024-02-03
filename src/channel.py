@@ -19,6 +19,40 @@ class Channel:
         self.video_count = self.channel["items"][0]["statistics"]["videoCount"]
         self.view_count = self.channel["items"][0]["statistics"]["viewCount"]
 
+    def __str__(self):
+        """вывод ссылки канала"""
+        return f"'{self.title} ({self.url})'"
+
+
+    def __add__(self,other):
+        """сложение количества подписчиков"""
+        return int(self.subscriber_count) + int(other.subscriber_count)
+
+    def __sub__(self,other):
+        """разница количества подписчиков"""
+        return int(self.subscriber_count) - int(other.subscriber_count)
+
+    def __sub__(self,other):
+        """обратная разница количества подписчиков"""
+        return int(other.subscriber_count) - int(self.subscriber_count)
+
+    def __gt__(self,other):
+        """сравнение количества подписчиков"""
+        return int(self.subscriber_count) > int(other.subscriber_count)
+
+    def __ge__(self,other):
+        """сравнения количества подписчиков"""
+        return int(self.subscriber_count) >= int(other.subscriber_count)
+
+    def __lt__(self,other):
+        """сложение количества подписчиков"""
+        return int(self.subscriber_count) < int(other.subscriber_count)
+
+    def __le__(self,other):
+        """сравнение количества подписчиков"""
+        return int(self.subscriber_count) <= int(other.subscriber_count)
+
+
     def print_info(self) -> None:
         """Выводит в консоль информацию о канале."""
         print(json.dumps(self.channel, indent=2, ensure_ascii=False))
@@ -45,5 +79,11 @@ class Channel:
     def channel_id(self):
         return self.__channel_id
 
+if __name__ in '__main__':
+    moscowpython = Channel('UC-OVMPlMA3-YCIeg4z5z23A')
+    print(moscowpython)
+    highload = Channel('UCwHL6WHUarjGfUM_586me8w')
+    print(highload)
+    print((moscowpython + highload))
 
 
