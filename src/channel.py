@@ -79,11 +79,8 @@ class Channel:
     def channel_id(self):
         return self.__channel_id
 
-if __name__ in '__main__':
-    moscowpython = Channel('UC-OVMPlMA3-YCIeg4z5z23A')
-    print(moscowpython)
-    highload = Channel('UCwHL6WHUarjGfUM_586me8w')
-    print(highload)
-    print((moscowpython + highload))
+#if __name__ in '__main__':
+
+
 
 
